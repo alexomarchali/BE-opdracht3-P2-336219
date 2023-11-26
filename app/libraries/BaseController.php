@@ -10,7 +10,7 @@ class BaseController
         } else {
             echo 'De view bestaat niet';
         }
-
+ 
     }
 
     public function model($model)
