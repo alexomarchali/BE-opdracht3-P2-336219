@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
 </head>
-
+ 
 <body>
 
     <div class="container mx-auto p-4">
