@@ -1,10 +1,10 @@
 
 DROP DATABASE IF EXISTS `be-opdracht1-j2-p1`;
 
--- Create a new Database
+
 CREATE DATABASE IF NOT EXISTS `be-opdracht1-j2-p1`;
 
--- Use database be-opdracht1-j2-p1
+
 Use `be-opdracht1-j2-p1`;
 
 
