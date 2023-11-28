@@ -35,14 +35,14 @@ class Instructeur extends BaseController
         $aantalSterren = $instructeurInfo->AantalSterren;
 
         /**
-         * We laten de model alle gegevens ophalen uit de database
+         * de model pakt alle gegeves uit het Database
          */
         $result = $this->instructeurModel->getToegewezenVoertuigen($InstructeaurId);
 
         $tableRows = "";
         if ($instructeurInfo->IsActief == 0) {
             /**
-             * Als er geen toegewezen voertuigen zijn komt de onderstaande tekst in de tabel
+             * Als er geen voertuigen zijn toegewezen komt de onderstaande tekst in de tabel te staan
              */
             $tableRows = "<tr>
             <td colspan='6'>
@@ -57,13 +57,13 @@ class Instructeur extends BaseController
           </tr>";
         } else {
             /**
-             * Bouw de rows op in een foreach-loop en stop deze in de variabele
+             * Bouwt de rows op in een foreach-loop en stop deze in de variabele
              * $tabelRows
              */
             foreach ($result as $voertuig) {
 
                 /**
-                 * Zet de datum in het juiste format
+                 * Zet de datum in de juiste volgorden
                  */
                 $date_formatted = date_format(date_create($voertuig->Bouwjaar), 'd-m-Y');
 
@@ -88,7 +88,7 @@ class Instructeur extends BaseController
                 if (empty($checkIfVoertuigIsAssigned)) {
                     $tableRows .=
                         "<p>
-                            ❌
+                        ❌
                         </p>";
                 } else {
                     foreach ($checkIfVoertuigIsAssigned as $checkVoertuig) {
@@ -100,7 +100,7 @@ class Instructeur extends BaseController
                                 if ($instructeur != $InstructeaurId) {
                                     $tableRows .=
                                         "<a href='" . URLROOT . "/instructeur/voertuigDelete/$checkVoertuig->VoertuigId/$instructeur'>
-                                            ✅
+                                        ✔️
                                         </a>";
                                 }
                             }
@@ -154,7 +154,7 @@ class Instructeur extends BaseController
         $instructeurInfo = $this->instructeurModel->getInstructeurById($InstructeaurId);
         $naam = $instructeurInfo->Voornaam . " " . $instructeurInfo->Tussenvoegsel . " " . $instructeurInfo->Achternaam;
         $this->instructeurModel->deleteVoertuig($Id, $InstructeaurId);
-        // show message and wait for 2 seconds
+        // wacht 2 seconden en laat een bericht zien
         echo "<div class='alert alert-success' role='alert'>
                 Voertuig is verwijderd van $naam
               </div>";
@@ -196,7 +196,7 @@ class Instructeur extends BaseController
         $naam = $instructeurInfo->Voornaam . " " . $instructeurInfo->Tussenvoegsel . " " . $instructeurInfo->Achternaam;
         $this->instructeurModel->ziekverlof($id);
         $this->instructeurModel->removeAllVoertuigen($id);
-        // wait for 2 seconds and say that the instructeur is ziek or verlof
+        // wacht 2 seconden en laat zien of de instructeur ziek is
         echo "<div class='alert alert-success' role='alert'>
                 $naam is ziek/met verlof gemeld
               </div>";
@@ -209,7 +209,7 @@ class Instructeur extends BaseController
         $naam = $instructeurInfo->Voornaam . " " . $instructeurInfo->Tussenvoegsel . " " . $instructeurInfo->Achternaam;
         $this->instructeurModel->ziekverlof($id);
         $this->instructeurModel->returnAllVoertuigen($id);
-        // wait for 2 seconds and say that the instructeur is ziek or verlof
+        // wacht 2 seconden en laat zien of de instructeur
         echo "<div class='alert alert-success' role='alert'>
                 $naam is terug
               </div>";
