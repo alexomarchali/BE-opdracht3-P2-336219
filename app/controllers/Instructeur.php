@@ -88,7 +88,7 @@ class Instructeur extends BaseController
                 if (empty($checkIfVoertuigIsAssigned)) {
                     $tableRows .=
                         "<p>
-                        ❌
+                        ✔️
                         </p>";
                 } else {
                     foreach ($checkIfVoertuigIsAssigned as $checkVoertuig) {
@@ -100,7 +100,7 @@ class Instructeur extends BaseController
                                 if ($instructeur != $InstructeaurId) {
                                     $tableRows .=
                                         "<a href='" . URLROOT . "/instructeur/voertuigDelete/$checkVoertuig->VoertuigId/$instructeur'>
-                                        ✔️
+                                        ❌
                                         </a>";
                                 }
                             }
